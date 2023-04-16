@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RacingCars {
-  private List<RacingCar> racingCars;
+  private final List<RacingCar> racingCars;
 
   public RacingCars(int numberOfCars) {
     this.racingCars = new ArrayList<>();

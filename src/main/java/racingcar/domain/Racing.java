@@ -5,7 +5,7 @@ import racingcar.strategy.MoveStrategy;
 import java.util.List;
 
 public class Racing {
-  private RacingCars cars;
+  private final RacingCars cars;
 
   public Racing(RacingCars racingCars) {
     this.cars = racingCars;
