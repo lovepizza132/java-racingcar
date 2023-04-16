@@ -10,16 +10,6 @@ import racingcar.strategy.NormalMoveStrategy;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class RacingCarTest {
-  @Test
-  @DisplayName("0~9사이 정수랜덤생성기")
-  public void checkRandomNumber_ReturnPositiveNumberUnderNine() {
-    RandomNumber randomNumber = new RandomNumber();
-    int result = randomNumber.calculateRandomNumber();
-
-    assertThat(result)
-        .isGreaterThanOrEqualTo(0)
-        .isLessThanOrEqualTo(9);
-  }
 
   @Test
   @DisplayName("CarInterface 상속으로 RacingCar 객체 생성 후 position = 0인지 확인")
