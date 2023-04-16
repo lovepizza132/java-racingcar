@@ -1,28 +1,21 @@
 package racingcar.domain;
 
-import racingcar.repository.NormalMoveStrategy;
-import racingcar.repository.MoveStrategy;
+import racingcar.strategy.MoveStrategy;
+
+import java.util.List;
 
 public class Racing {
-  private RacingCars racing;
+  private RacingCars cars;
 
   public Racing(RacingCars racingCars) {
-    this.racing = racingCars;
+    this.cars = racingCars;
   }
 
-  // racing 진행
-  public void startRacingRound() {
-    for (RacingCar racingCar : this.racing.statusOfRacingCars()) {
-      racingCar.tryToMove(defaultRacingMoveStrategy());
-    }
+  public void startRacingRound(MoveStrategy normalMoveStrategy) {
+    this.cars.runRacingRound(normalMoveStrategy);
   }
 
-  // move 전략패턴
-  public static MoveStrategy defaultRacingMoveStrategy() {
-    return new NormalMoveStrategy();
-  }
-
-  public RacingCar[] statusOfRacing() {
-    return this.racing.statusOfRacingCars();
+  public List<RacingCar> statusOfRacing() {
+    return this.cars.statusOfRacingCars();
   }
 }

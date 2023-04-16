@@ -1,19 +1,30 @@
 package racingcar.domain;
 
+import racingcar.strategy.MoveStrategy;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class RacingCars {
-  private RacingCar[] racingCars;
+  private List<RacingCar> racingCars;
 
   public RacingCars(int numberOfCars) {
-    this.racingCars = new RacingCar[numberOfCars];
+    this.racingCars = new ArrayList<>();
 
     for (int i = 0; i < numberOfCars; i++) {
-      this.racingCars[i] = new RacingCar();
+      this.racingCars.add(new RacingCar());
+    }
+  }
+
+  public void runRacingRound(MoveStrategy normalMoveStrategy) {
+    for (RacingCar racingCar : this.racingCars) {
+      racingCar.tryToMove(normalMoveStrategy);
     }
   }
 
   // 자동차들 객체 가져오기
-  public RacingCar[] statusOfRacingCars() {
-    return racingCars;
+  public List<RacingCar> statusOfRacingCars() {
+    return this.racingCars;
   }
 
 }
